@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/Amir-FF/webpack-exercise#readme",
   "devDependencies": {
+    "css-loader": "^7.1.4",
+    "style-loader": "^4.0.0",
     "webpack": "^5.109.2",
     "webpack-cli": "^7.2.2"
   }

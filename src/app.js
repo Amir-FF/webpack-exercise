@@ -1,3 +1,4 @@
-import log from "./function.js"
+import Button from './components/button/Button.js';
 
-log ()
+const button = new Button();
+button.render();
