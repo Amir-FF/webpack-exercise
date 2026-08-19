@@ -1,4 +1,5 @@
 import './button.css';
+import './button.scss';
 
 class Button {
   render() {

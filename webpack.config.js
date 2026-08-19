@@ -8,7 +8,7 @@ module.exports = {
         filename: "app.js",
         path: path.resolve(__dirname, "./dist")
     },
-    
+
     mode: "none",
 
     module: {
@@ -17,6 +17,11 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
+            },
+
+            {
+                test: /\.s[ac]ss$/i,
+                use: ["style-loader", "css-loader", "sass-loader"],
             },
 
         ],
