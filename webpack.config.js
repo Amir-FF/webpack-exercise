@@ -30,6 +30,11 @@ module.exports = {
                 type: 'asset/resource',
             },
 
+            {
+                test: /\.(eot|ttf|woff|woff2)$/i,
+                type: 'asset/inline',
+            },
+
         ],
     },
 }
