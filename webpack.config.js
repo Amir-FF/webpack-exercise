@@ -6,7 +6,8 @@ module.exports = {
 
     output: {
         filename: "app.js",
-        path: path.resolve(__dirname, "./dist")
+        path: path.resolve(__dirname, "./dist"),
+        assetModuleFilename: 'images/[name][ext]',
     },
 
     mode: "none",
@@ -22,6 +23,11 @@ module.exports = {
             {
                 test: /\.s[ac]ss$/i,
                 use: ["style-loader", "css-loader", "sass-loader"],
+            },
+
+            {
+                test: /\.png/,
+                type: 'asset/resource',
             },
 
         ],
