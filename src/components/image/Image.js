@@ -1,13 +1,15 @@
-import webpackImage from './webpack_image.png';
+import $ from "jquery";
+import webpackImage from "./webpack_image.png";
 
-class Image{
+class Image {
     render() {
-        const img = document.createElement('img');
-        img.alt = 'webpackImage';
-        img.src = webpackImage;
-        img.width = 450;
-        const body = document.querySelector("body");
-        body.appendChild(img);
+        const img = $("<img />", {
+            alt: "webpackImage",
+            src: webpackImage,
+            width: 450,
+        });
+        const body = $("body");
+        body.append(img);
     }
 }
 
