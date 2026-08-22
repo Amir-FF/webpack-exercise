@@ -1,4 +1,5 @@
 const path = require("path")
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
 
@@ -8,6 +9,11 @@ module.exports = {
         filename: "app.js",
         path: path.resolve(__dirname, "./dist"),
         assetModuleFilename: 'images/[name][ext]',
+    },
+
+    optimization: {
+        minimize: true,
+        minimizer: [new TerserPlugin()],
     },
 
     mode: "none",
@@ -50,5 +56,6 @@ module.exports = {
             },
 
         ],
+
     },
 }
