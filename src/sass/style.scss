@@ -15,8 +15,7 @@ body {
     font-family: "Vazir" !important;
 }
 
-$dark-color: #171a1d;
-$info-color: #10707f;
+$info-color: #d42a88;
 
 // .btn-dark {
 //     color: white;
@@ -28,7 +27,8 @@ $info-color: #10707f;
 // }
 
 .text-info {
-    color: $info-color;
+    color: $info-color !important;
+    margin-left: 1rem;
     font-weight: bold;
     font-family: "Vazir" !important;
 }
