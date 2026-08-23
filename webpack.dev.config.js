@@ -1,9 +1,9 @@
 const path = require("path")
-const TerserPlugin = require('terser-webpack-plugin');
+// const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ESLintPlugin = require("eslint-webpack-plugin");
+// const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = {
 
@@ -15,12 +15,12 @@ module.exports = {
         assetModuleFilename: 'images/[name][ext]',
     },
 
-    optimization: {
-        minimize: true,
-        minimizer: [new TerserPlugin()],
-    },
+    // optimization: {
+    //     minimize: true,
+    //     minimizer: [new TerserPlugin()],
+    // },
 
-    mode: "none",
+    mode: "development",
 
     plugins: [
 
@@ -35,7 +35,7 @@ module.exports = {
             // publicPath: "./dist/",
         }),
 
-        new ESLintPlugin()
+        // new ESLintPlugin()
         
     ],
 
