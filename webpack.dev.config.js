@@ -20,6 +20,14 @@ module.exports = {
     //     minimizer: [new TerserPlugin()],
     // },
 
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, "./dist"),
+        },
+        compress: true,
+        port: 9000,
+    },
+
     mode: "development",
 
     plugins: [
