@@ -7,7 +7,7 @@ module.exports = {
     entry: "./src/app.js",
 
     output: {
-        filename: "app.js",
+        filename: "app-[contenthash].js",
         path: path.resolve(__dirname, "./dist"),
         assetModuleFilename: 'images/[name][ext]',
     },
@@ -22,7 +22,7 @@ module.exports = {
     plugins: [
 
         new MiniCssExtractPlugin ({
-            filename: "CSS/style.css"
+            filename: "CSS/style-[contenthash].css"
         }),
         
     ],
