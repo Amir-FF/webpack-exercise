@@ -22,11 +22,11 @@ module.exports = {
         static: {
             directory: path.resolve(__dirname, "./dist"),
         },
-        compress: true,
-        port: 9000,
         devMiddleware: {
             writeToDisk: true, 
         },
+        compress: true,
+        port: 9000,
     },
 
     mode: "development",

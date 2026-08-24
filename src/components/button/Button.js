@@ -12,6 +12,19 @@ class Button {
             p.innerHTML = "WebProg.ir";
             p.classList.add("text-info");
             body.appendChild(p);
+
+            // It always runs.
+            import ('../image/Image.js').then (module => {
+                const Image = module.default;
+                const image = new Image();
+                image.render();
+            });
+
+
+            // It runs once.
+            // import ('../../image').then (module => {
+
+            // });
         };
     }
 }
