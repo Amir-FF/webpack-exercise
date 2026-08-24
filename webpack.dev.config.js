@@ -7,18 +7,16 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
 
-    entry: "./src/app.js",
+    entry: {
+        "button": "./src/button.js",
+        "image": "./src/image.js",
+    },
 
     output: {
-        filename: "app-[contenthash].js",
+        filename: "JS/[name]-[contenthash].js",
         path: path.resolve(__dirname, "./dist"),
         assetModuleFilename: 'images/[name][ext]',
     },
-
-    // optimization: {
-    //     minimize: true,
-    //     minimizer: [new TerserPlugin()],
-    // },
 
     devServer: {
         static: {
@@ -26,6 +24,9 @@ module.exports = {
         },
         compress: true,
         port: 9000,
+        devMiddleware: {
+            writeToDisk: true, 
+        },
     },
 
     mode: "development",
@@ -33,14 +34,21 @@ module.exports = {
     plugins: [
 
         new MiniCssExtractPlugin ({
-            filename: "CSS/style-[contenthash].css"
+            filename: "CSS/[name]-[contenthash].css"
         }),
 
         new CleanWebpackPlugin(),
 
         new HtmlWebpackPlugin({
-            template: "index.html",
-            // publicPath: "./dist/",
+            filename: "button.html",
+            template: "button_template.html",
+            chunks: ["button"]
+        }),
+
+        new HtmlWebpackPlugin({
+            filename: "image.html",
+            template: "image_template.html",
+            chunks: ["image"]
         }),
 
         // new ESLintPlugin()
