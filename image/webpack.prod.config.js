@@ -4,6 +4,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 // const ESLintPlugin = require("eslint-webpack-plugin");
+const { ModuleFederationPlugin } = require('webpack').container;
+
 
 module.exports = {
 
@@ -36,6 +38,14 @@ module.exports = {
         }),
 
         // new ESLintPlugin()
+
+        new ModuleFederationPlugin ({
+            name: "ImageApp",
+            exposes: {
+                "./ImageModule": "./src/components/image/Image.js"
+            },
+            filename: "remoteEntry.js"
+        })
         
     ],
 

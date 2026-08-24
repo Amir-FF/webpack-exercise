@@ -4,16 +4,15 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 // const ESLintPlugin = require("eslint-webpack-plugin");
+const { ModuleFederationPlugin } = require('webpack').container;
+
 
 module.exports = {
 
-    entry: {
-        "button": "./src/button.js",
-        "image": "./src/image.js",
-    },
+    entry: "./src/app.js",
 
     output: {
-        filename: "JS/[name]-[contenthash].js",
+        filename: "JS/app-[contenthash].js",
         path: path.resolve(__dirname, "./dist"),
         assetModuleFilename: 'images/[name][ext]',
     },
@@ -34,24 +33,23 @@ module.exports = {
     plugins: [
 
         new MiniCssExtractPlugin ({
-            filename: "CSS/[name]-[contenthash].css"
+            filename: "CSS/style-[contenthash].css"
         }),
 
         new CleanWebpackPlugin(),
 
         new HtmlWebpackPlugin({
-            filename: "button.html",
-            template: "button_template.html",
-            chunks: ["button"]
-        }),
-
-        new HtmlWebpackPlugin({
-            filename: "image.html",
-            template: "image_template.html",
-            chunks: ["image"]
+            template: "index.html",
         }),
 
         // new ESLintPlugin()
+
+        new ModuleFederationPlugin ({
+            name: "ButtonApp",
+            remotes: {
+                "ImageApp": "ImageApp@http://localhost:9001/remoteEntry.js"
+            },
+        })
         
     ],
 

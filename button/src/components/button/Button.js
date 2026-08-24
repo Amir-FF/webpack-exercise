@@ -14,7 +14,7 @@ class Button {
             body.appendChild(p);
 
             // It always runs.
-            import ('../image/Image.js').then (module => {
+            import ('ImageApp/ImageModule').then (module => {
                 const Image = module.default;
                 const image = new Image();
                 image.render();
